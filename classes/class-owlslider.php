@@ -24,8 +24,8 @@
             'slider_type'=> 'post',       // slide || post
             'transition_style' => null, // fade || backSlide || goDown || fadeUp
             'slider_page'=> null,
-            'limit' => 3,
-            'items' => 20,
+            'limit' => 10,
+            'items' => 5,
             'slide_speed' => 300,
             'navigation' => 'true',
             'single_item' => 'true',
@@ -207,7 +207,7 @@
                                 singleItem: <?php echo $settings['single_item']; ?>,
                                 autoPlay: <?php echo $settings['autoplay']; ?>,
                                 navigationText: ["<i class='glyphicon glyphicon-chevron-left'></i>", "<i class='glyphicon glyphicon-chevron-right'></i>"],
-                                paginationSpeed: <?php echo $settings['slide_speed']; ?>,                                
+                                paginationSpeed: <?php echo $settings['slide_speed']; ?>,
                                 slideSpeed: <?php echo $settings['slide_speed']; ?>,
                                 <?php if($settings['transition_style'] != null) : ?>transitionStyle: "<?php echo $settings['transition_style']; ?>",<?php endif; ?>
 
