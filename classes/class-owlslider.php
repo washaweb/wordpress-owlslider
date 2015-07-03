@@ -92,12 +92,14 @@
             $term_meta = get_option( "owlslidepage_".$term->term_id);
             
             //fix render for defaults booleans
-            foreach($term_meta as $key => $meta) {
-                if(isset($meta) || $meta == null) {
-                    $term_meta[$key] = $this->defaults[$key];
-                    if($this->debug) {
-                        echo $key.'<br>';
-                        echo $term_meta[$key].'<br>';
+            if( is_array($term_meta) ) {
+                foreach($term_meta as $key => $meta) {
+                    if(isset($meta) || $meta == null) {
+                        $term_meta[$key] = $this->defaults[$key];
+                        if($this->debug) {
+                            echo $key.'<br>';
+                            echo $term_meta[$key].'<br>';
+                        }
                     }
                 }
             }
@@ -168,7 +170,8 @@
             $query = new WP_Query(array(
                 'post_type' => 'owlslide',
                 'tax_query' => array($taxonomy),
-                'post_count' => $args['limit']
+                'post_count' => $args['limit'],
+                'nopaging' => true
             ));
 
             return $query;
